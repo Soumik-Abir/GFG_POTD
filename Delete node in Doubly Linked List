@@ -1,0 +1,28 @@
+class Solution {
+  public:
+    Node* deleteNode(Node* head, int x) {
+        // Your code here
+        struct Node *temp=head;
+        x=x-1;
+        while(x--){
+           temp= temp->next;
+        }
+        if(head== NULL || temp==NULL){
+            return NULL;
+        }
+        if(head==temp){
+            head=temp->next;
+        }
+        if(temp->next !=NULL){
+            temp->next->prev=temp->prev;
+        }
+        if(temp->prev !=NULL){
+            temp->prev->next=temp->next;
+        }
+        free(temp);
+        return head;
+    }
+};
+
+
+// Question link -> https://www.geeksforgeeks.org/problems/delete-node-in-doubly-linked-list/1
