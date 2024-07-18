@@ -1,0 +1,25 @@
+class Solution {
+  public:
+    int alternatingMaxLength(vector<int>& arr) {
+        // Code here
+        if(arr.size()<2){
+            return arr.size();
+        }
+        int low_high=1;
+        int high_low=1;
+        for(int i=1;i<arr.size();i++){
+            
+            if(arr[i]>arr[i-1]){
+                low_high=1+high_low;
+            }
+            else if(arr[i]<arr[i-1]){
+                high_low=1+low_high;
+            }
+        }
+        return max(low_high,high_low);
+    }
+};
+
+
+// Question link -> https://www.geeksforgeeks.org/problems/longest-alternating-subsequence5951/1
+// Video Sol -> https://youtu.be/AdDuTvTpHOM?si=wfCt_f6W9F2Tvdl2
