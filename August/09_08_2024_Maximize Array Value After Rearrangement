@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    int Maximize(vector<int> arr) {
+        // Complete the function
+        int n = arr.size();
+        const long long MOD = 1e9+7;
+        long long sum =0;
+        sort(arr.begin(),arr.end());
+        for(int i =0 ;i<n;i++){
+            sum = (sum + (i*(long long)arr[i])% MOD)% MOD;
+        }
+        return sum % MOD; 
+    }
+};
+
+// Question link -> https://www.geeksforgeeks.org/problems/maximize-arrii-of-an-array0026/1
