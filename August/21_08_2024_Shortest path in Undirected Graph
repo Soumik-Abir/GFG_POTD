@@ -1,0 +1,32 @@
+class Solution {
+  public:
+    vector<int> shortestPath(vector<vector<int>>& edges, int N,int M, int src){
+        // code here
+        unordered_map<int,vector<int>>adj;
+        for(int i=0;i<M;i++){
+            int u=edges[i][0];
+            int v=edges[i][1];
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+        }
+        vector<int>ans(N,-1);
+        ans[src]=0;
+        queue<int>q;
+        q.push(src);
+        while(!q.empty()){
+            int temp=q.front();
+            q.pop();
+            for(auto i:adj[temp]){
+                if(ans[i]==-1){
+                    ans[i]=ans[temp]+1;
+                    q.push(i);
+                }
+            }
+        }
+        return ans;
+    }
+};
+
+
+// Question link -> https://www.geeksforgeeks.org/problems/shortest-path-in-undirected-graph-having-unit-distance/1
+// Video Sol -> https://youtu.be/yhVMxYsH5zo?si=6xc3aC7DM9raqvpv
