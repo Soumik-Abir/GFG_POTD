@@ -1,0 +1,36 @@
+class Solution {
+  public:
+    // Complete this function
+    // Function to sort the array according to frequency of elements.
+    static bool helper(pair<int, int> a, pair<int, int> b){
+        if (a.second == b.second) return a.first < b.first;
+        return a.second > b.second;
+    }
+    vector<int> sortByFreq(vector<int>& arr) {
+        // Your code here
+        int n = arr.size();
+        unordered_map<int, int> map;
+        for (int i = 0; i < n; i++){
+            map[arr[i]]++;
+        }
+        
+        vector<pair<int,int>> vec;
+        for (auto it = map.begin(); it != map.end(); it++){
+            vec.push_back({it->first, it->second});
+        }
+        
+        sort(vec.begin(),vec.end(),helper);
+        
+        vector<int> ans;
+        
+        for(auto it: vec){
+            int cnt=it.second;
+            while(cnt--){
+                ans.push_back(it.first);
+            }
+        }
+        return ans;
+    }
+};
+
+// Question link -> https://www.geeksforgeeks.org/problems/sorting-elements-of-an-array-by-frequency-1587115621/1
