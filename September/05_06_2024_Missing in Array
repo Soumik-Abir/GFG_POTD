@@ -1,0 +1,23 @@
+
+
+// User function template for C++
+class Solution {
+  public:
+
+    // Note that the size of the array is n-1
+    int missingNumber(int n, vector<int>& arr) {
+
+        // Your code goes here
+        int totalSum = n * (n + 1) / 2; // Expected sum of numbers from 0 to n
+        int arraySum = 0;
+    
+        for (int num : arr) {
+            arraySum += num; // Sum of all numbers in the array
+        }
+    
+        return totalSum - arraySum; // The missing number
+    }
+};
+
+
+// Question link -> https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1
