@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    // Function to return the minimum cost of connecting the ropes.
+    long long minCost(vector<long long>& arr) {
+        // Your code here
+        priority_queue<long long, vector<long long>, greater<long long>> pq(arr.begin(),arr.end());
+        long long totalSum =0;
+        while(pq.size()>1){
+            long long first = pq.top();
+            pq.pop();
+            long long sec = pq.top();
+            pq.pop();
+            
+            long long newsum = first+sec;
+            totalSum+=newsum;
+            pq.push(newsum);
+        }
+        return totalSum;
+    }   
+};
+
+// Question link -> https://www.geeksforgeeks.org/problems/minimum-cost-of-ropes-1587115620/1
