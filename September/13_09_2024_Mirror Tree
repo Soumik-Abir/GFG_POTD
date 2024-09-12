@@ -1,0 +1,20 @@
+class Solution {
+  public:
+    // Function to convert a binary tree into its mirror tree.
+    void mirror(Node* node) {
+        // code here
+        // Base case: If the node is null, there is no tree to mirror.
+        if(node == nullptr) return;
+        
+        // Swap the left and right child nodes of the current node.
+        Node* temp = node->left;  // Temporarily store the left child.
+        node->left = node->right; // Assign the right child to the left.
+        node->right = temp;       // Assign the previously stored left child to the right.
+        
+        // Recursively mirror the left and right subtrees.
+        mirror(node->left);  // Mirror the new left subtree.
+        mirror(node->right); // Mirror the new right subtree.
+    }
+};
+
+// Question link -> https://www.geeksforgeeks.org/problems/mirror-tree/1
