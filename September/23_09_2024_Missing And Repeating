@@ -1,0 +1,33 @@
+class Solution {
+  public:
+    vector<int> findTwoElement(vector<int>& arr) {
+        // code here
+        long long n = arr.size();
+        long long sumN =(n * (n + 1))/ 2;
+        long long sumNSquares = (n * (n + 1) * (2 * n + 1)) / 6;
+
+        long long s1 = 0;
+        long long sq = 0;
+        
+        for (auto i: arr) {
+            s1 += i;
+            sq += (long long)i * i;
+        }
+        
+        long long diffSum = sumN - s1;
+        long long diffSumSquares = sumNSquares - sq;
+
+        long long sumAplusB = diffSumSquares / diffSum;
+
+        int A = (diffSum + sumAplusB) / 2;
+        int B =  A - diffSum;
+
+        vector<int> ans;
+        ans.push_back((int)B);
+        ans.push_back((int)A);
+        return ans;
+    }
+};
+
+// Question link -> https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
+//  Video link -> https://youtu.be/pw1FiZZFpEk?si=u303Nfb0hU9Vg1_5
