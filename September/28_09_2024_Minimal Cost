@@ -1,0 +1,27 @@
+class Solution {
+  public:
+    int sol(vector<int>& dp, int ind, vector<int>& arr, int k) {
+        if (ind == 0) return 0;  
+        if (dp[ind] != -1) return dp[ind];  
+        
+        int minCost = INT_MAX;
+        
+        for (int j = 1; j <= k; ++j) {
+            if (ind - j >= 0) {  
+                int cost = sol(dp, ind - j, arr, k) + abs(arr[ind] - arr[ind - j]);
+                minCost = min(minCost, cost);
+            }
+        }
+        
+        return dp[ind] = minCost;  
+    }
+    int minimizeCost(int k, vector<int>& arr) {
+        // Code here
+        int n = arr.size();
+        vector<int> dp(n, -1); 
+        return sol(dp, n - 1, arr, k);
+    }
+};
+
+// Question link -> https://www.geeksforgeeks.org/problems/minimal-cost/1
+//  Video link -> https://www.youtube.com/watch?v=Kmh3rhyEtB8
