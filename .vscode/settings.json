@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "13_10_2024_delete alternate nodes": "c",
-        "11_10_2024_reorganize the array": "c"
+        "11_10_2024_reorganize the array": "c",
+        "17_10_2024_split linked list alternatingly": "cpp"
     }
 }
