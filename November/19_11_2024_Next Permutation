@@ -1,0 +1,64 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+// User function Template for C++
+
+class Solution {
+  public:
+    void nextPermutation(vector<int>& nums) {
+        // code here
+        int n=nums.size();
+        int peak=-1;
+        for(int i=n-2;i>=0;i--){
+            if(nums[i]<nums[i+1]){
+                peak=i;
+                break;
+            }
+        }
+        if(peak==-1){
+            reverse(nums.begin(),nums.end());
+            return;
+        }
+        for(int i=n-1;i>peak;i--){
+            if(nums[peak]<nums[i]){
+                swap(nums[peak],nums[i]);
+                break;
+            }
+        }
+        reverse(nums.begin()+peak+1,nums.end());
+        return;
+    }
+};
+
+//{ Driver Code Starts.
+int main() {
+    int t;
+    cin >> t;
+    cin.ignore();
+    while (t--) {
+        vector<int> arr;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
+        while (ss >> number) {
+            arr.push_back(number);
+        }
+        Solution ob;
+        int n = arr.size();
+        ob.nextPermutation(arr);
+        for (int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
+
+// } Driver Code Ends
+
+// Question link -> https://www.geeksforgeeks.org/problems/next-permutation5226/1
+// Video link -> https://youtu.be/FCP9hq6ulEM?si=XFyByhK7xPd95B3d
