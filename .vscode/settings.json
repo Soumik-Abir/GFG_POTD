@@ -5,6 +5,8 @@
         "17_10_2024_split linked list alternatingly": "cpp",
         "19_10_2024_nearest multiple of 10": "cpp",
         "22_10_2024_sub-arrays with equal number of occurences": "cpp",
-        "13_11_2024_intersection point in y shaped linked lists": "cpp"
+        "13_11_2024_intersection point in y shaped linked lists": "cpp",
+        "25_11_2024_maximum product subarray": "cpp",
+        "iostream": "cpp"
     }
 }
